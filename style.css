@@ -1,0 +1,242 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: 62.5%;
+
+  --bc-body: #FFFFFF;
+  --fc-timer: #323238;
+  --ff-timer: 'Roboto', sans-serif;
+
+  --cf-iconControlDisplay: #323238;
+  --cf-iconActivatedControlDisplay: #02799D;
+
+  --bc-soundButton: #E1E1E6;
+  --bc-soundButtonActived: #02799D;
+  --bc-iconDeactived: #323238;
+  --bc-iconActived: #FFFFFF;
+
+  --bc-sliderDeactived: #323238;
+  --bc-sliderActived: #FFFFFF;
+  --cf-iconActived: #FFFFFF;
+
+}
+
+html.dark {
+  --bc-body: #121214;
+  --fc-timer: #FFFFFF;
+  --ff-timer: 'Roboto', sans-serif;
+
+  --cf-iconControlDisplay: #C4C4CC;
+  --cf-iconActivatedControlDisplay: #02799D;
+
+  --bc-soundButton: #29292E;
+  --bc-soundButtonActived: #0A3442;
+  --bc-iconDeactived: #C4C4CC;
+  --bc-iconActived: #FFFFFF;
+
+  --bc-sliderDeactived: #FFFFFF;
+  --bc-sliderActived: #FFFFFF;
+  --cf-iconActived: #FFFFFF;
+}
+
+body {
+  background-color: var(--bc-body);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  min-height: 100vh;
+}
+
+header{
+  width: auto;
+  display: flex;
+  flex-direction: row;
+  align-self: flex-end;
+  padding-right: 6rem;
+  height: 12rem;
+}
+
+header .lightmode, header .darkmode {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+main {
+  display: flex;
+  flex-direction: row;
+  gap: clamp(3rem, 7rem + 5vw, 19.7rem);
+
+}
+
+.timer {
+  display: flex;
+  flex-direction: column;
+  gap: 1.7rem;
+  align-items: center;
+  justify-content: center;
+  width: clamp(25rem, 25rem + 10vw, 33.5rem);
+}
+
+.timerDisplay {
+  font-family: var(--ff-timer);
+  color: var(--fc-timer);
+  text-align: center;
+  font-size: 5.5rem;
+  line-height: normal;
+  text-transform: uppercase;
+
+  width: 82%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.controlDisplay{
+  width: 82%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.controlDisplay button {
+  border: none;
+  background-color: transparent;
+
+  cursor: pointer;
+}
+
+.controlDisplay button path {
+  fill: var(--cf-iconControlDisplay);
+}
+
+.controlDisplay .pause path {
+  fill: var(--cf-iconActivatedControlDisplay);
+}
+
+.hide {
+  display: none;
+}
+
+.sounds .card {
+  height: 15.2rem;
+  width: 13.8rem;
+  background-color: var(--bc-soundButton);
+  border-radius: 2.4rem;
+  text-align: center;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sounds button {
+  border: none;
+  background-color: transparent;
+  text-align: center;
+  margin: 2.4rem auto 3.2rem;
+  cursor: pointer;
+}
+
+.sounds button path {
+  fill: var(--bc-iconDeactived);
+}
+
+input[type=range] {
+  height: 2.2rem;
+  -webkit-appearance: none;
+  width: 9rem;
+  background: transparent;
+}
+input[type=range]:focus {
+  outline: none;
+}
+input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 0.4rem;
+  cursor: pointer;
+  box-shadow: 0px 0px 0px #000000;
+  background: var(--bc-sliderDeactived);
+  border-radius: .5rem;
+  border: 0px solid #000000;
+}
+input[type=range]::-webkit-slider-thumb {
+  box-shadow: 0px 0px 0px #000000;
+  border: 0px solid #000000;
+  height: 1.6rem;
+  width: 1.6rem;
+  border-radius: 1.6rem;
+  background: var(--bc-sliderDeactived);
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -6px;
+}
+input[type=range]:focus::-webkit-slider-runnable-track {
+  background: var(--bc-sliderDeactived);
+}
+input[type=range]::-ms-track {
+  width: 9rem;
+  height: .4rem;
+  cursor: pointer;
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+
+.sounds .active {
+  background-color: var(--bc-soundButtonActived);
+}
+
+.sounds .active input[type=range]::-webkit-slider-runnable-track,
+.sounds .active input[type=range]::-webkit-slider-thumb,
+.sounds .active input[type=range]:focus::-webkit-slider-runnable-track {
+  background: var(--bc-sliderActived);
+}
+
+.sounds .card .active path{
+  fill: var(--cf-iconActived);
+}
+
+.sounds {
+  width: clamp(25rem, 25rem + 10vw, 33.6rem);
+  display: grid;
+  gap: 3.2rem;
+  grid-template-areas: "A B"
+  "C D";
+}
+
+.sounds:nth-child(0) {
+  grid-area: A;
+}
+
+.sounds:nth-child(1) {
+  grid-area: A;
+}
+
+.sounds:nth-child(2) {
+  grid-area: B;
+}
+
+.sounds:nth-child(3) {
+  grid-area: B;
+}
+
+.sounds:nth-child(4) {
+  grid-area: C;
+}
+
+.sounds:nth-child(5) {
+  grid-area: C;
+}
+
+.sounds:nth-child(6) {
+  grid-area: D;
+}
+
+.sounds:nth-child(7) {
+  grid-area: D;
+}
